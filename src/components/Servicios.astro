@@ -1,0 +1,103 @@
+---
+import { SITE } from "../data/site.js";
+
+const servicios = [
+  {
+    n: "01",
+    nombre: "Diagnóstico Estratégico Comercial",
+    linea: "Para gerentes y directivos de Pymes que necesitan claridad antes de tomar decisiones de crecimiento.",
+    incluye: "Revisión del modelo de negocio actual, análisis de brechas comerciales y financieras, hoja de ruta priorizada con acciones concretas.",
+    resultado: "Un mapa de decisiones claro en 2 sesiones, sin diagnósticos que duermen en un cajón.",
+    quien: "Gerentes generales o directores de Pymes que sienten que el negocio crece sin orden.",
+    tiempo: "2 sesiones de 90 min · 10–15 días",
+    destacado: true,
+  },
+  {
+    n: "02",
+    nombre: "Consultoría Estratégica y Comercial",
+    linea: "Proceso completo, para equipos directivos que necesitan método, no solo consejo.",
+    incluye: "Diseño o rediseño del modelo de negocio, estructura comercial, análisis financiero de gestión, acompañamiento en implementación.",
+    resultado: "Un equipo que toma decisiones con datos, con una estrategia comercial que se puede ejecutar sin depender de la consultora.",
+    quien: "Pymes con equipo directivo formado que quieren escalar con control, no a ciegas.",
+    tiempo: "Proceso de 3 a 6 meses, según complejidad",
+  },
+  {
+    n: "03",
+    nombre: "Taller Financiero para Equipos Directivos",
+    linea: "Para organizaciones cuyo equipo toma decisiones sin leer bien los números.",
+    incluye: "Taller práctico de lectura e interpretación de estados financieros, indicadores clave de gestión, decisiones basadas en datos reales del negocio.",
+    resultado: "Directivos que entienden el lenguaje financiero y pueden proyectar el crecimiento del negocio.",
+    quien: "Equipos de 3 a 10 personas con rol directivo o gerencial en Pymes o entidades privadas.",
+    tiempo: "1 jornada de 6–8 h, o 3 sesiones de 2 h",
+  },
+  {
+    n: "04",
+    nombre: "Gestión y Rendición de Programas con Financiamiento Público",
+    linea: "Más de 8 años en el sector público y en programas financiados por GORE, MIDESO y entidades estatales.",
+    incluye: "Planificación presupuestaria,&nbsp; revisión de ejecución financiera, revisión de rendiciones para alinearlas al cumplimiento normativo (ChileCompra, Contraloría).",
+    resultado: "Programas ejecutados dentro de norma, sin observaciones y con rendiciones aprobadas.",
+    quien: "Municipios, fundaciones y organizaciones que ejecutan fondos públicos y necesitan respaldo técnico con experiencia real en gestión estatal.",
+    tiempo: "Contratos de 6 a 24 meses, según alcance",
+  },
+  {
+    n: "05",
+    nombre: "Asesoría Financiera Personal y Empresarial",
+    linea: "Solo para clientes con relación establecida a través de consultoría o gestión de programas.",
+    incluye: "Análisis de situación financiera personal o empresarial y evaluación de alternativas evaluando costo, riesgo y retorno esperado.",
+    resultado: "Decisiones financieras tomadas con criterio, no por intuición.",
+    quien: "Profesionales independientes, ejecutivos y dueños de Pymes que ya trabajan conmigo.",
+    tiempo: "Proceso continuo mensual o por objetivos",
+    restringido: true,
+  },
+];
+---
+<section id="servicios" aria-labelledby="servicios-heading" style="background:#E3D6C5;padding:var(--pad-y) var(--pad-x)">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:16px;max-width:720px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#A94A34">Servicios</span>
+      <h2 id="servicios-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(28px,4.6vw,44px);line-height:1.1;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Cinco servicios, una sola puerta de entrada</h2>
+      <p style="font-size:17px;line-height:1.65;margin:0;color:#5D5545;text-wrap:pretty">Todo parte por una reunión de diagnóstico de 25 minutos, sin costo. Desde ahí definimos cuál de estos servicios corresponde — o si no corresponde ninguno, también te lo digo.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr));gap:24px">
+      {servicios.map((s) => (
+        <div style={`background:${s.destacado ? "#2E3A46" : "#FFFFFF"};${s.destacado ? "border-top:3px solid #C15B42;" : "border:1px solid #DCD5C7;"}padding:clamp(22px,3.2vw,32px);display:flex;flex-direction:column;gap:20px`}>
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#C15B42">Servicio {s.n}</span>
+            {s.destacado && (
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#FFF4F0;background:#C15B42;border:1px solid #C15B42;padding:6px 9px;white-space:nowrap">Puerta de entrada</span>
+            )}
+            {s.restringido && (
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8A7A5E;background:#F5EFE3;border:1px solid #D5C6B1;padding:6px 9px;white-space:nowrap">Clientes activos</span>
+            )}
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <h3 style={`font-family:'Source Serif 4',Georgia,serif;font-size:24px;line-height:1.2;font-weight:600;margin:0;text-wrap:pretty;color:${s.destacado ? "#F0EDE4" : "#2E3A46"}`}>{s.nombre}</h3>
+            <span style={`font-size:14px;line-height:1.65;color:${s.destacado ? "#C8CED4" : "#5A6570"}`}>{s.linea}</span>
+          </div>
+          <div style={`display:flex;flex-direction:column;gap:16px;border-top:1px solid ${s.destacado ? "#3E4B58" : "#DCD5C7"};padding-top:20px`}>
+            <div style="display:grid;grid-template-columns:var(--cols-label);gap:6px 16px;align-items:start">
+              <span style={`font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:${s.destacado ? "#A9B2BB" : "#7A8590"};padding-top:3px`}>Qué incluye</span>
+              <span style={`font-size:14.5px;line-height:1.6;color:${s.destacado ? "#F0EDE4" : "#3F4A56"}`} set:html={s.incluye} />
+            </div>
+            <div style="display:grid;grid-template-columns:var(--cols-label);gap:6px 16px;align-items:start">
+              <span style={`font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:${s.destacado ? "#A9B2BB" : "#7A8590"};padding-top:3px`}>Resultado</span>
+              <span style={`font-size:14.5px;line-height:1.6;color:${s.destacado ? "#F0EDE4" : "#3F4A56"}`}>{s.resultado}</span>
+            </div>
+            <div style="display:grid;grid-template-columns:var(--cols-label);gap:6px 16px;align-items:start">
+              <span style={`font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:${s.destacado ? "#A9B2BB" : "#7A8590"};padding-top:3px`}>Para quién</span>
+              <span style={`font-size:14.5px;line-height:1.6;color:${s.destacado ? "#F0EDE4" : "#3F4A56"}`}>{s.quien}</span>
+            </div>
+          </div>
+          {s.destacado ? (
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:8px">
+              <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.5;color:#A9B2BB">{s.tiempo}</span>
+              <a href={SITE.calLink} target="_blank" rel="noopener" class="btn-outline" style="border:1px solid #F0EDE4;color:#F0EDE4;font-size:13.5px;font-weight:500;padding:11px 18px;min-height:44px;display:inline-flex;align-items:center">Agenda una reunión</a>
+            </div>
+          ) : (
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.5;color:#7A8590;margin-top:auto;padding-top:8px">{s.tiempo}</span>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

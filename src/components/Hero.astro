@@ -1,0 +1,26 @@
+---
+import { SITE } from "../data/site.js";
+---
+<section id="inicio" class="hero" style="position:relative;overflow:hidden;padding:var(--pad-y) var(--pad-x) var(--pad-y)">
+  <span style="position:absolute;top:16px;right:16px;width:var(--dots-size);height:var(--dots-size);background-image:radial-gradient(#C15B42 1.6px, transparent 1.6px);background-size:16px 16px;opacity:var(--dots-op);pointer-events:none"></span>
+  <div class="hero-grid" style="position:relative;max-width:1240px;margin:0 auto">
+    <div style="grid-area:heading;display:flex;flex-direction:column;gap:20px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#C15B42">Consultoría estratégica y comercial · Valdivia, Chile</span>
+      <h1 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(32px,6.4vw,54px);line-height:1.06;font-weight:600;letter-spacing:-.02em;margin:0;color:#F0EDE4;text-wrap:pretty">¿Tu empresa crece pero las decisiones siguen tomándose a ojo?</h1>
+    </div>
+    <div class="hero-photo" style="grid-area:photo;position:relative;display:flex;align-items:flex-end;justify-content:flex-end;height:var(--hero-img-h);border-top:3px solid #C15B42">
+      <div style="position:absolute;left:var(--fig-left);bottom:32px;background:#E3D6C5;padding:16px 20px;display:flex;flex-direction:column;gap:4px;z-index:1">
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:500;line-height:1;color:#2E3A46">+20</span>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#6E6455">Años decidiendo con números</span>
+      </div>
+      <img src="/assets/6-mt7fhv3w-5n6u.png" alt={SITE.nombre} style="width:auto;max-width:var(--hero-img-max);height:100%;object-fit:contain;object-position:50% 100%;display:block" />
+    </div>
+    <div style="grid-area:body;display:flex;flex-direction:column;gap:20px">
+      <p style="font-size:18px;line-height:1.65;margin:0;max-width:490px;color:#C8CED4;text-wrap:pretty">Eso tiene un costo: oportunidades perdidas, recursos mal asignados, equipos sin dirección clara. Acompaño a gerentes y directivos de Pymes a ordenar su estrategia comercial y financiera para que crecer tenga método, no intuición.</p>
+      <div style="display:flex;align-items:center;gap:24px;flex-wrap:wrap">
+        <a href={SITE.calLink} target="_blank" rel="noopener" class="btn-primary" style="background:#C15B42;color:#FFF4F0;font-size:16px;font-weight:500;padding:16px 30px;min-height:52px;display:inline-flex;align-items:center">{SITE.ctaLabel}</a>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.6;color:#A9B2BB">25 min · sin costo<br>sin compromiso</span>
+      </div>
+    </div>
+  </div>
+</section>

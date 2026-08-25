@@ -1,0 +1,148 @@
+---
+// Layout compartido: cada página le pasa su propio título, descripción,
+// imagen social y JSON-LD. Nada de esto queda fijo — es lo que hace que
+// las meta tags sean "editables por página" en vez de un <head> repetido.
+import { SITE } from "../data/site.js";
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: "website" | "article" | "profile";
+  path?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  ogImage = "/assets/6-mt7fhv3w-5n6u.png",
+  ogType = "website",
+  path = "/",
+  jsonLd,
+} = Astro.props;
+
+const canonicalUrl = new URL(path, SITE.domain).toString();
+const ogImageUrl = new URL(ogImage, SITE.domain).toString();
+const jsonLdBlocks = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:locale" content="es_CL" />
+  <meta property="og:site_name" content={SITE.nombre} />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageUrl} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  {jsonLdBlocks.map((block) => (
+    <script type="application/ld+json" set:html={JSON.stringify(block)} />
+  ))}
+
+  <style is:global>
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: #F0EDE4; font-family: 'Work Sans', system-ui, sans-serif; color: #2E3A46; -webkit-font-smoothing: antialiased; }
+    a { color: #C15B42; text-decoration: none; }
+    a:hover { color: #A94A34; }
+    img { max-width: 100%; }
+    :root {
+      --pad-x: 88px;
+      --pad-y: 64px;
+      --gap-lg: 56px;
+      --cols-hero: minmax(0,1.15fr) minmax(0,.85fr);
+      --cols-split: minmax(0,.9fr) minmax(0,1.1fr);
+      --cols-cta: minmax(0,1fr) auto;
+      --cols-label: 108px minmax(0,1fr);
+      --hero-img-h: 460px;
+      --hero-img-max: 320px;
+      --fig-left: -28px;
+      --nav-h: 84px;
+      --dots-size: 260px;
+      --dots-op: .45;
+    }
+    @media (max-width: 1000px) {
+      :root {
+        --pad-x: 40px;
+        --pad-y: 52px;
+        --gap-lg: 40px;
+        --cols-hero: minmax(0,1fr);
+        --cols-split: minmax(0,1fr);
+        --cols-cta: minmax(0,1fr);
+        --hero-img-h: 300px;
+        --hero-img-max: 60%;
+        --fig-left: 0px;
+        --nav-h: 172px;
+        --dots-size: 0px;
+        --dots-op: 0;
+      }
+    }
+    @media (max-width: 560px) {
+      :root {
+        --pad-x: 22px;
+        --pad-y: 44px;
+        --gap-lg: 30px;
+        --cols-label: minmax(0,1fr);
+        --hero-img-h: 220px;
+        --hero-img-max: 78%;
+        --nav-h: 232px;
+      }
+    }
+    section[id] { scroll-margin-top: var(--nav-h); }
+
+    .hero {
+      background:
+        radial-gradient(ellipse 640px 420px at 100% 0%, rgba(193,91,66,.20), transparent 65%),
+        #2E3A46;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: var(--cols-hero);
+      grid-template-areas: "heading photo" "body photo";
+      column-gap: var(--gap-lg);
+      row-gap: 24px;
+      align-items: end;
+    }
+    @media (max-width: 1000px) {
+      .hero-grid {
+        grid-template-areas: "heading" "photo" "body";
+        row-gap: 24px;
+      }
+    }
+
+    .nav-link { transition: color 150ms ease, border-bottom-color 150ms ease; }
+    .nav-link:hover { color: #F0EDE4; border-bottom-color: #C15B42; }
+    .btn-primary { transition: background-color 150ms ease, color 150ms ease; }
+    .btn-primary:hover { background: #A94A34; color: #FFF4F0; }
+    .btn-outline { transition: background-color 150ms ease, color 150ms ease; }
+    .btn-outline:hover { background: #F0EDE4; color: #2E3A46; }
+    .footer-domain { transition: color 150ms ease, border-bottom-color 150ms ease; }
+    .footer-domain:hover { color: #F0EDE4; border-bottom-color: #F0EDE4; }
+    .footer-link { transition: color 150ms ease; }
+    .footer-link:hover { color: #F0EDE4; }
+  </style>
+</head>
+<body>
+  <slot />
+</body>
+</html>

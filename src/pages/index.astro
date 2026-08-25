@@ -1,0 +1,57 @@
+---
+// Meta tags y JSON-LD de ESTA página. Cada página nueva bajo src/pages/
+// define los suyos propios de la misma forma, sin tocar el layout.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import Hero from "../components/Hero.astro";
+import Trayectoria from "../components/Trayectoria.astro";
+import ComoTrabajo from "../components/ComoTrabajo.astro";
+import Servicios from "../components/Servicios.astro";
+import Cita from "../components/Cita.astro";
+import CierreCTA from "../components/CierreCTA.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { SITE } from "../data/site.js";
+
+const title = "Angelica Romero Vergara · Consultoría estratégica y comercial";
+const description = "Acompaño a gerentes y directivos de Pymes a ordenar su estrategia comercial y financiera para que crecer tenga método, no intuición. Valdivia, Los Ríos.";
+
+// JSON-LD de esta página. Datos verificados en el proyecto (nada inventado):
+// nombre, credenciales, ciudad y enlaces reales del footer/hero.
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: SITE.nombre,
+  description,
+  url: SITE.domain,
+  email: SITE.correo,
+  areaServed: {
+    "@type": "City",
+    name: "Valdivia",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Valdivia",
+    addressRegion: "Los Ríos",
+    addressCountry: "CL",
+  },
+  founder: {
+    "@type": "Person",
+    name: SITE.nombre,
+    jobTitle: "Ingeniera Comercial",
+    sameAs: [SITE.linkedin],
+  },
+  sameAs: [SITE.linkedin],
+};
+---
+<BaseLayout title={title} description={description} path="/" jsonLd={jsonLd}>
+  <SiteHeader />
+  <main>
+    <Hero />
+    <Trayectoria />
+    <ComoTrabajo />
+    <Servicios />
+    <Cita />
+    <CierreCTA />
+  </main>
+  <SiteFooter />
+</BaseLayout>
