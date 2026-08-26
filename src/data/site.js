@@ -26,8 +26,8 @@ export const SERVICIOS = {
     nombre: "Consultoría Estratégica y Comercial (CANVAS)",
   },
   taller: {
-    url: "/servicios/taller-financiero-equipos-directivos",
-    nombre: "Taller Financiero para Equipos Directivos",
+    url: "/servicios/taller-financiero-para-quienes-deciden",
+    nombre: "Taller Financiero para Quienes Deciden en tu Pyme",
   },
 };
 
