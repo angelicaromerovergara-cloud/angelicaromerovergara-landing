@@ -1,0 +1,111 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import PageHero from "../../components/PageHero.astro";
+import EnlaceAgenda from "../../components/EnlaceAgenda.astro";
+import Faq from "../../components/Faq.astro";
+import CierreCTA from "../../components/CierreCTA.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { SITE, SERVICIOS } from "../../data/site.js";
+import { breadcrumbSchema, faqSchema } from "../../lib/schema.js";
+
+const title = "Diagnóstico Estratégico Comercial para Pymes | ARV";
+const description = "Diagnóstico de 2 sesiones para gerentes de pymes en Chile: revisamos tus números y estructura comercial, con hoja de ruta priorizada escrita.";
+const path = SERVICIOS.diagnostico.url;
+
+const breadcrumbItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Servicios", href: "/#servicios" },
+  { name: SERVICIOS.diagnostico.nombre },
+];
+
+const faq = [
+  {
+    q: "¿Por qué la primera reunión es gratis y esta no?",
+    a: "La reunión de 25 minutos existe para que ambos sepamos si hay caso, antes de comprometer tiempo pagado. El Diagnóstico Estratégico Comercial es el trabajo real: dos sesiones de 90 minutos con entregable escrito.",
+  },
+  {
+    q: "¿Hay compromiso de continuar después del diagnóstico?",
+    a: "No. La hoja de ruta es tuya, la uses conmigo o no.",
+  },
+  {
+    q: "¿Para qué tamaño de pyme está pensado?",
+    a: "Para empresas con equipo de gestión formado —no necesariamente grande— que ya toman decisiones de crecimiento y necesitan que esas decisiones tengan respaldo.",
+  },
+];
+
+const jsonLd = [
+  breadcrumbSchema(
+    breadcrumbItems.map((item) => ({
+      name: item.name,
+      url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
+    }))
+  ),
+  faqSchema(faq),
+];
+---
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <SiteHeader />
+  <main>
+    <PageHero breadcrumbItems={breadcrumbItems} title="¿Tienes un problema de estrategia o de ejecución?">
+      <p>Una reunión de 25 minutos, sin costo, responde esa pregunta. Si hay caso para seguir, el siguiente paso es el Diagnóstico Estratégico Comercial: dos sesiones de 90 minutos donde revisamos tus números reales, tu estructura comercial y tus cuellos de botella, y que cierran con un entregable escrito — una hoja de ruta priorizada, no una presentación genérica.</p>
+    </PageHero>
+
+    <section aria-labelledby="que-es-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="que-es-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Diagnóstico Estratégico Comercial</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Es el único servicio con botón propio, porque es la puerta de entrada a todo lo demás. Revisamos tu situación real —no la que parece a primera vista— y salimos con prioridades claras y responsables definidos. Si no hay caso, te lo digo en la primera reunión.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="incluye-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+        <h2 id="incluye-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Qué incluye</h2>
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">2 sesiones de 90 minutos</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Trabajamos sobre tus números y tu estructura comercial real, no sobre una plantilla. Cada sesión termina con acuerdos concretos, no con tareas para "seguir pensando".</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Entregable escrito</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Una hoja de ruta priorizada: qué resolver primero, con qué métrica se mide y quién es responsable. Queda contigo, no en mi carpeta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="cuando-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+        <h2 id="cuando-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Cómo saber si tu pyme lo necesita</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Este diagnóstico tiene sentido si en tu empresa ocurre algo de esto:</p>
+        <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;color:#3F4A56;font-size:15.5px;line-height:1.65">
+          <li>Las decisiones de crecimiento se toman por intuición, sin respaldo en datos de venta, caja o rentabilidad.</li>
+          <li>Tu equipo ejecuta, pero cada área tira para un lado distinto.</li>
+          <li>Ya evaluaste contratar un consultor antes, pero terminaste con un informe que nadie volvió a abrir.</li>
+        </ul>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Si dos de estos tres puntos te suenan, hay caso para conversar.</p>
+        <EnlaceAgenda />
+      </div>
+    </section>
+
+    <section aria-labelledby="despues-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="despues-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Qué pasa después</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Al cierre del Diagnóstico Estratégico Comercial, la hoja de ruta indica el siguiente paso según lo que encontramos: <a href={SERVICIOS.canvas.url} style="color:#C15B42;text-decoration:underline">Consultoría Estratégica y Comercial (CANVAS)</a> si el tema es estructura comercial, <a href={SERVICIOS.rendiciones.url} style="color:#C15B42;text-decoration:underline">Revisión de Rendiciones de Cuentas</a> si el problema está en fondos públicos, o <a href={SERVICIOS.taller.url} style="color:#C15B42;text-decoration:underline">Taller Financiero</a> si lo que falta es un lenguaje común en el equipo directivo. La Asesoría Financiera Personal nunca se ofrece en esta instancia: es exclusiva para clientes activos.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+        <h2 id="faq-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Preguntas frecuentes</h2>
+        <Faq items={faq} />
+      </div>
+    </section>
+
+    <CierreCTA
+      title="¿Partimos por la reunión de 25 minutos?"
+      description="Sin costo, sin compromiso. Salimos sabiendo si tu empresa tiene un problema de estrategia o de ejecución."
+    />
+  </main>
+  <SiteFooter />
+</BaseLayout>

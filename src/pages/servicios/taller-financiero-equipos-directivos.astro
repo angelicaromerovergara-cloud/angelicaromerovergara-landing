@@ -1,0 +1,81 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import PageHero from "../../components/PageHero.astro";
+import EnlaceAgenda from "../../components/EnlaceAgenda.astro";
+import RelatedService from "../../components/RelatedService.astro";
+import CierreCTA from "../../components/CierreCTA.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { SITE, SERVICIOS } from "../../data/site.js";
+import { breadcrumbSchema } from "../../lib/schema.js";
+
+const title = "Taller Financiero para Equipos Directivos | ARV";
+const description = "Taller financiero para equipos directivos de pymes en Chile: caja, margen y endeudamiento en un lenguaje común. Jornada única o 3 sesiones.";
+const path = SERVICIOS.taller.url;
+
+const breadcrumbItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Servicios", href: "/#servicios" },
+  { name: SERVICIOS.taller.nombre },
+];
+
+const jsonLd = breadcrumbSchema(
+  breadcrumbItems.map((item) => ({
+    name: item.name,
+    url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
+  }))
+);
+---
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <SiteHeader />
+  <main>
+    <PageHero breadcrumbItems={breadcrumbItems} title="¿Tu equipo directivo toma decisiones financieras sin un lenguaje común?">
+      <p>Cuando cada gerente de área interpreta la caja, el margen o el endeudamiento a su manera, las reuniones de comité se alargan sin llegar a acuerdo. Un taller financiero para tu equipo directivo resuelve eso en una jornada o en tres sesiones, no en un curso genérico de meses.</p>
+    </PageHero>
+
+    <section aria-labelledby="que-es-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="que-es-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Taller Financiero para Equipos Directivos</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Un espacio de trabajo directo con tu equipo de gestión, centrado en los conceptos financieros que se usan a diario para decidir: caja, margen, capacidad de pago, endeudamiento y riesgo.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="formato-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
+        <h2 id="formato-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Formato</h2>
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Jornada intensiva o 3 sesiones</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Se define según la disponibilidad del equipo, no al revés: una jornada completa o tres sesiones espaciadas, con el mismo contenido.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Equipos de 3 a 10 personas</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Pensado para comités de gestión y equipos directivos, no para capacitaciones masivas.</p>
+          </div>
+        </div>
+        <EnlaceAgenda />
+      </div>
+    </section>
+
+    <section aria-labelledby="por-que-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="por-que-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Por qué este taller y no una capacitación genérica</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Cinco años como ejecutiva de cuentas en Banco de Chile, evaluando riesgo en banca masiva, preferencial y empresas, son la base de este contenido: no es teoría de manual, es el mismo criterio con que un banco decide financiar o no un negocio. A diferencia de una capacitación OTEC o SENCE estándar, este taller se ajusta a los números reales de tu empresa, no a un caso genérico.</p>
+      </div>
+    </section>
+
+    <section aria-label="Servicio relacionado" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto">
+        <RelatedService>
+          Si además del lenguaje común el equipo necesita reordenar el modelo de negocio completo, el siguiente paso natural es <a href={SERVICIOS.canvas.url} style="color:#C15B42;text-decoration:underline">Consultoría Estratégica y Comercial (metodología CANVAS)</a>.
+        </RelatedService>
+      </div>
+    </section>
+
+    <CierreCTA
+      title="¿Tu equipo directivo necesita hablar el mismo idioma financiero?"
+      description="Una reunión de diagnóstico de 25 minutos, sin costo, define el formato que mejor se ajusta a tu equipo."
+    />
+  </main>
+  <SiteFooter />
+</BaseLayout>

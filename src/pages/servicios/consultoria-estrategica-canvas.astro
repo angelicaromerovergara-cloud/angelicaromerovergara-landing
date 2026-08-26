@@ -1,0 +1,92 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import PageHero from "../../components/PageHero.astro";
+import EnlaceAgenda from "../../components/EnlaceAgenda.astro";
+import RelatedService from "../../components/RelatedService.astro";
+import CierreCTA from "../../components/CierreCTA.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { SITE, SERVICIOS } from "../../data/site.js";
+import { breadcrumbSchema } from "../../lib/schema.js";
+
+const title = "Consultoría Estratégica CANVAS para Pymes | ARV";
+const description = "Consultoría estratégica y comercial con metodología CANVAS para pymes chilenas. Acompañamiento de 3 a 6 meses, con criterio de evaluación bancaria.";
+const path = SERVICIOS.canvas.url;
+
+const breadcrumbItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Servicios", href: "/#servicios" },
+  { name: SERVICIOS.canvas.nombre },
+];
+
+const jsonLd = breadcrumbSchema(
+  breadcrumbItems.map((item) => ({
+    name: item.name,
+    url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
+  }))
+);
+---
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <SiteHeader />
+  <main>
+    <PageHero breadcrumbItems={breadcrumbItems} title="¿Tu modelo de negocio está claro para ti, pero no para tu equipo?">
+      <p>Si cada área rema para un lado distinto, el problema no es de esfuerzo: es de estructura. Ordeno el modelo de negocio y la estructura comercial de tu pyme con metodología CANVAS y acompañamiento real, no con un informe que se queda en un cajón.</p>
+    </PageHero>
+
+    <section aria-labelledby="que-es-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="que-es-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Consultoría Estratégica y Comercial — metodología CANVAS aplicada a Pymes chilenas</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">CANVAS es la herramienta, no la promesa. La promesa es que al final del proceso tu equipo entienda el mismo negocio que tú ya tienes en la cabeza, con una estructura comercial capaz de ejecutarlo.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="proceso-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+        <h2 id="proceso-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Cómo funciona el proceso</h2>
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Diagnóstico inicial</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Revisamos tu modelo de negocio actual: qué genera ingreso, qué lo sostiene y dónde está el cuello de botella real.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Aplicación CANVAS + estructura comercial</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Construimos el modelo en conjunto con tu equipo y lo traducimos en una estructura comercial operativa: roles, procesos y metas.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Acompañamiento (3 a 6 meses)</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Sigo la implementación contigo, con ajustes según lo que va funcionando en terreno, no según lo planificado en una sala.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="metodologia-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="metodologia-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Por qué esta metodología</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Diez años al frente de Consultora Focus Valdivia aplicando CANVAS y análisis financiero en pymes reales del sur de Chile — no en casos de estudio importados. La metodología es la misma que usan otras consultoras; la diferencia es que aquí se aplica con criterio de banca: evaluando capacidad de pago y caja real antes de proponer una estrategia de crecimiento.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="para-quien-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="para-quien-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Para quién es</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">No hace falta ser una empresa grande. Este proceso está pensado para pymes con un equipo de gestión formado, que ya generan ingresos pero necesitan que las decisiones de crecimiento tengan estructura detrás — no volumen de ventas como único criterio de éxito.</p>
+        <EnlaceAgenda />
+      </div>
+    </section>
+
+    <section aria-label="Servicio relacionado" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto">
+        <RelatedService>
+          Si el problema no es el modelo de negocio sino que tu equipo directivo toma decisiones financieras sin un lenguaje común, el paso más directo es el <a href={SERVICIOS.taller.url} style="color:#C15B42;text-decoration:underline">Taller Financiero para Equipos Directivos</a>.
+        </RelatedService>
+      </div>
+    </section>
+
+    <CierreCTA
+      title="¿Partimos por ordenar tu modelo de negocio?"
+      description="Una reunión de diagnóstico de 25 minutos, sin costo, define si el caso es estructura comercial, ejecución, o ambas."
+    />
+  </main>
+  <SiteFooter />
+</BaseLayout>

@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import PageHero from "../../components/PageHero.astro";
+import EnlaceAgenda from "../../components/EnlaceAgenda.astro";
+import Faq from "../../components/Faq.astro";
+import CierreCTA from "../../components/CierreCTA.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import { SITE, SERVICIOS } from "../../data/site.js";
+import { breadcrumbSchema, faqSchema } from "../../lib/schema.js";
+
+const title = "Revisión de Rendiciones de Cuentas | Angelica Romero Vergara";
+const description = "Revisión de rendiciones ante Contraloría para ejecutores de fondos públicos en Chile. Reduce observaciones y riesgo de restitución. Basado en 8 años en Serplac.";
+const path = SERVICIOS.rendiciones.url;
+
+const breadcrumbItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Servicios", href: "/#servicios" },
+  { name: SERVICIOS.rendiciones.nombre },
+];
+
+const faq = [
+  {
+    q: "¿Reemplazan a quien prepara la rendición en mi equipo?",
+    a: "No. Trabajamos sobre lo que tu equipo ya preparó — no tomamos el control del proceso.",
+  },
+  {
+    q: "¿Sirve si ya recibimos una primera observación?",
+    a: "Sí. Es el momento en que más importa revisar bien, porque la siguiente respuesta suele ser la última oportunidad de corregir.",
+  },
+  {
+    q: "¿Trabajas de forma remota o solo en Valdivia/Los Ríos?",
+    a: "Ambas. Base en Valdivia, alcance nacional.",
+  },
+  {
+    q: "¿Cuál es el valor de este servicio?",
+    a: "Se estructura como una revisión periódica —por ciclo de rendición, mientras dure tu programa— más que como una revisión única. Eso da continuidad al criterio de revisión, y a ti previsibilidad de costo. El valor exacto se define en la reunión de diagnóstico, según la cantidad de rendiciones y la periodicidad de tu programa.",
+  },
+  {
+    q: "¿Cuál es el primer paso?",
+    a: "Una reunión de 25 minutos, sin costo, para entender tu caso y decirte si hay margen de mejora antes de tu próximo envío.",
+  },
+];
+
+const jsonLd = [
+  breadcrumbSchema(
+    breadcrumbItems.map((item) => ({
+      name: item.name,
+      url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
+    }))
+  ),
+  faqSchema(faq),
+];
+---
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <SiteHeader />
+  <main>
+    <PageHero breadcrumbItems={breadcrumbItems} title="¿Qué pasa si tu próxima rendición no pasa la revisión?">
+      <p>Reviso rendiciones de cuentas antes de que lleguen a Contraloría, para que no tengas que devolver un gasto que ya ejecutaste.</p>
+    </PageHero>
+
+    <section aria-labelledby="que-es-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="que-es-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Revisión de rendiciones de cuentas para ejecutores de fondos públicos</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Ocho años en Serplac Los Ríos revisando rendiciones de programas MIDESO me enseñaron qué observa un evaluador antes de que lo pregunte. Hoy aplico ese mismo criterio, pero desde tu lado: reviso tu rendición antes de que la envíes.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="riesgo-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="riesgo-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">El riesgo real: un gasto rechazado no desaparece, se devuelve</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Si un gasto no queda bien respaldado, no solo recibes una observación — la normativa vigente desde julio de 2026 obliga a <strong>restituir ese dinero</strong>. El gasto ya salió de tu caja una vez para pagarlo; si la rendición no resiste la revisión, sale una segunda vez para devolverlo. Es un costo que ningún presupuesto contempla.</p>
+        <EnlaceAgenda label="¿Quieres que revisemos tu rendición antes de que eso pase?" />
+      </div>
+    </section>
+
+    <section aria-labelledby="como-funciona-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+        <h2 id="como-funciona-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Cómo funciona</h2>
+        <div style="display:flex;flex-direction:column;gap:28px">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Inducción normativa del proyecto</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Analizamos tu proyecto específico y te dejamos claro, antes de ejecutar: qué gastos son financiables, qué observaciones son más frecuentes y qué respaldo necesita cada ítem.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Revisión previa al envío</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">Revisamos la rendición que tu equipo ya preparó — respaldos faltantes, inconsistencias — antes de subirla al sistema.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="font-size:19px;line-height:1.3;font-weight:600;margin:0;color:#2E3A46">Acompañamiento durante la ejecución del programa</h3>
+            <p style="font-size:15px;line-height:1.65;margin:0;color:#5A6570">El servicio se estructura por ciclo de rendición, no como una revisión única y aislada: te acompaño en cada envío mientras dure tu programa, con la misma revisión cada vez.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="para-quien-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
+        <h2 id="para-quien-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Para quién es</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Ejecutores privados que reciben transferencias públicas (fundaciones, ONG) y municipios donde la rendición recae en el mismo profesional que hace el seguimiento técnico del programa, sin formación específica en la normativa de Contraloría.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="carga-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px">
+        <h2 id="carga-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Por qué esta revisión reduce tu carga, no la aumenta</h2>
+        <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;color:#3F4A56;font-size:15.5px;line-height:1.65">
+          <li>Menos observaciones de Contraloría → menos ciclos de corrección para tu equipo.</li>
+          <li>Menos reproceso → tu equipo no repite el mismo trabajo dos veces.</li>
+          <li>Claridad desde el inicio sobre en qué gastar y cómo acreditarlo → menos gastos objetados.</li>
+          <li>Menor riesgo de tener que restituir recursos ya ejecutados → cuidas el flujo de caja de tu organización.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+        <h2 id="faq-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Preguntas frecuentes</h2>
+        <Faq items={faq} />
+      </div>
+    </section>
+
+    <CierreCTA title="¿Revisamos tu próxima rendición antes de enviarla?" description="" />
+  </main>
+  <SiteFooter />
+</BaseLayout>

@@ -4,8 +4,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import Hero from "../components/Hero.astro";
-import Trayectoria from "../components/Trayectoria.astro";
+import Cobertura from "../components/Cobertura.astro";
 import ComoTrabajo from "../components/ComoTrabajo.astro";
+import Trayectoria from "../components/Trayectoria.astro";
 import Servicios from "../components/Servicios.astro";
 import Cita from "../components/Cita.astro";
 import CierreCTA from "../components/CierreCTA.astro";
@@ -24,10 +25,10 @@ const jsonLd = {
   description,
   url: SITE.domain,
   email: SITE.correo,
-  areaServed: {
-    "@type": "City",
-    name: "Valdivia",
-  },
+  areaServed: [
+    { "@type": "City", name: "Valdivia" },
+    { "@type": "Country", name: "Chile" },
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Valdivia",
@@ -47,11 +48,12 @@ const jsonLd = {
   <SiteHeader />
   <main>
     <Hero />
-    <Trayectoria />
+    <Cobertura />
     <ComoTrabajo />
+    <Trayectoria />
     <Servicios />
     <Cita />
-    <CierreCTA />
+    <CierreCTA ctaSubtext="Cal.com · martes a jueves · 09–18 h" />
   </main>
   <SiteFooter />
 </BaseLayout>

@@ -1,0 +1,20 @@
+---
+// El CTA de segundo nivel del Brand Kit: texto simple con flecha, sin
+// fondo ni tamaño de botón. Máximo una vez por página.
+import { SITE } from "../data/site.js";
+
+interface Props {
+  label?: string;
+  href?: string;
+  external?: boolean;
+}
+const { label = SITE.ctaLabel, href = SITE.calLink, external = true } = Astro.props;
+---
+<p style="margin:0">
+  <a
+    href={href}
+    target={external ? "_blank" : undefined}
+    rel={external ? "noopener" : undefined}
+    style="color:#C15B42;font-size:16px;font-weight:400"
+  >→ {label}</a>
+</p>

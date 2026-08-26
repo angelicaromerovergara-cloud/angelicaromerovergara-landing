@@ -1,0 +1,10 @@
+---
+interface Props {
+  heading?: string;
+}
+const { heading = "Servicio relacionado" } = Astro.props;
+---
+<div style="background:#F0EDE4;border-left:3px solid #2E3A46;padding:20px 24px;display:flex;flex-direction:column;gap:8px">
+  <span style="font-size:15px;font-weight:600">{heading}</span>
+  <p style="font-size:14px;line-height:1.65;margin:0;color:#3F4A56"><slot /></p>
+</div>
