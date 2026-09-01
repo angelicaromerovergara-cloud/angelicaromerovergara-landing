@@ -9,8 +9,8 @@ import SiteFooter from "../../components/SiteFooter.astro";
 import { SITE, SERVICIOS } from "../../data/site.js";
 import { breadcrumbSchema, faqSchema } from "../../lib/schema.js";
 
-const title = "Diagnóstico Estratégico Comercial para Pymes | ARV";
-const description = "Diagnóstico de 2 sesiones para gerentes de pymes en Chile: revisamos tus números y estructura comercial, con hoja de ruta priorizada escrita.";
+const title = "Claridad Estratégica para Pymes | ARV";
+const description = "Claridad Estratégica: 2 sesiones para gerentes de pymes en Chile. Revisamos tus números y estructura comercial, con hoja de ruta priorizada escrita.";
 const path = SERVICIOS.diagnostico.url;
 
 const breadcrumbItems = [
@@ -22,7 +22,7 @@ const breadcrumbItems = [
 const faq = [
   {
     q: "¿Por qué la primera reunión es gratis y esta no?",
-    a: "La reunión de 25 minutos existe para que ambos sepamos si hay caso, antes de comprometer tiempo pagado. El Diagnóstico Estratégico Comercial es el trabajo real: dos sesiones de 90 minutos con entregable escrito.",
+    a: "La reunión de 25 minutos existe para que ambos sepamos si hay caso, antes de comprometer tiempo pagado. Claridad Estratégica es el trabajo real: dos sesiones de 90 minutos con entregable escrito.",
   },
   {
     q: "¿Hay compromiso de continuar después del diagnóstico?",
@@ -48,13 +48,13 @@ const jsonLd = [
   <SiteHeader />
   <main>
     <PageHero breadcrumbItems={breadcrumbItems} title="¿Tienes un problema de estrategia o de ejecución?">
-      <p>Una reunión de 25 minutos, sin costo, responde esa pregunta. Si hay caso para seguir, el siguiente paso es el Diagnóstico Estratégico Comercial: dos sesiones de 90 minutos donde revisamos tus números reales, tu estructura comercial y tus cuellos de botella, y que cierran con un entregable escrito — una hoja de ruta priorizada, no una presentación genérica.</p>
+      <p>Una reunión de 25 minutos, sin costo, responde esa pregunta. Si hay caso para seguir, el siguiente paso es Claridad Estratégica: dos sesiones de 90 minutos donde revisamos tus números reales, tu estructura comercial y tus cuellos de botella, y que cierran con un entregable escrito — una hoja de ruta priorizada, no una presentación genérica.</p>
     </PageHero>
 
     <section aria-labelledby="que-es-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
       <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
-        <h2 id="que-es-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Diagnóstico Estratégico Comercial</h2>
-        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Es el único servicio con botón propio, porque es la puerta de entrada a todo lo demás. Revisamos tu situación real —no la que parece a primera vista— y salimos con prioridades claras y responsables definidos. Si no hay caso, te lo digo en la primera reunión.</p>
+        <h2 id="que-es-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Claridad Estratégica</h2>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Es la puerta de entrada a todo lo demás. Revisamos tu situación real —no la que parece a primera vista— y salimos con prioridades claras y responsables definidos. Si no hay caso, te lo digo en la primera reunión.</p>
       </div>
     </section>
 
@@ -91,7 +91,7 @@ const jsonLd = [
     <section aria-labelledby="despues-heading" style="background:#F0EDE4;padding:var(--pad-y) var(--pad-x)">
       <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px">
         <h2 id="despues-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Qué pasa después</h2>
-        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Al cierre del Diagnóstico Estratégico Comercial, la hoja de ruta indica el siguiente paso según lo que encontramos: <a href={SERVICIOS.canvas.url} style="color:#C15B42;text-decoration:underline">Consultoría Estratégica y Comercial (CANVAS)</a> si el tema es estructura comercial, <a href={SERVICIOS.rendiciones.url} style="color:#C15B42;text-decoration:underline">Revisión de Rendiciones de Cuentas</a> si el problema está en fondos públicos, o <a href={SERVICIOS.taller.url} style="color:#C15B42;text-decoration:underline">Taller Financiero</a> si lo que falta es un lenguaje financiero común entre quienes deciden. La Asesoría Financiera Personal nunca se ofrece en esta instancia: es exclusiva para clientes activos.</p>
+        <p style="font-size:17px;line-height:1.65;margin:0;color:#5A6570">Al cierre de Claridad Estratégica, la hoja de ruta indica el siguiente paso según lo que encontramos: <a href={SERVICIOS.canvas.url} style="color:#C15B42;text-decoration:underline">Evolución Estratégica Del Negocio</a> si el tema es estructura comercial, <a href={SERVICIOS.rendiciones.url} style="color:#C15B42;text-decoration:underline">Rendición Segura De Fondos Públicos</a> si el problema está en fondos públicos, o <a href={SERVICIOS.taller.url} style="color:#C15B42;text-decoration:underline">Taller "Finanzas para tomar decisiones"</a> si lo que falta es un lenguaje financiero común entre quienes deciden. La Asesoría Financiera Personal nunca se ofrece en esta instancia: es exclusiva para clientes activos.</p>
       </div>
     </section>
 

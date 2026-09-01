@@ -1,0 +1,287 @@
+---
+// Política de Privacidad y Tratamiento de Datos Personales — v1.0,
+// vigencia 1-dic-2026. Contenido trasladado desde el borrador de Design
+// (Politica_Privacidad_ARV.dc.html), ya con el nombre "Mapa de Decisiones"
+// aplicado (decisión 1-sep-2026, ver Memoria_ARV.md). Página nueva: no
+// existía hasta ahora en el sitio Astro, solo el link estaba pendiente.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import PageHero from "../components/PageHero.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import { SITE, PRIVACIDAD_URL } from "../data/site.js";
+import { breadcrumbSchema } from "../lib/schema.js";
+
+const title = "Política de Privacidad | Angelica Romero Vergara";
+const description = "Cómo se recopila, usa, almacena y protege la información del Mapa de Decisiones en www.angelicaromero.cl, conforme a la Ley N.º 21.719.";
+const path = PRIVACIDAD_URL;
+
+const breadcrumbItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Política de Privacidad" },
+];
+
+const jsonLd = breadcrumbSchema(
+  breadcrumbItems.map((item) => ({
+    name: item.name,
+    url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
+  }))
+);
+---
+<BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
+  <SiteHeader />
+  <main>
+    <PageHero breadcrumbItems={breadcrumbItems} eyebrow="Legal" title="Política de Privacidad y Tratamiento de Datos Personales" showCta={false}>
+      <p>{description}</p>
+    </PageHero>
+
+    <section aria-label="Política de Privacidad y Tratamiento de Datos Personales" style="background:#FFFFFF;padding:56px var(--pad-x) var(--pad-y)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column">
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Versión:</strong> 1.0</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Fecha de entrada en vigencia:</strong> 1 de diciembre de 2026</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Última actualización:</strong> 31 de agosto de 2026</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Sitio web:</strong> www.angelicaromero.cl</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Responsable del tratamiento:</strong> Angélica Romero</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Correo de contacto:</strong> contacto@angelicaromero.cl</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">1. Objeto de esta política</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Esta Política de Privacidad establece cómo Angélica Romero recopila, utiliza, almacena, protege y, cuando corresponda, elimina o anonimiza la información obtenida mediante el sitio web www.angelicaromero.cl y, particularmente, mediante el formulario Mapa de Decisiones.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El tratamiento se realiza de acuerdo con la legislación chilena aplicable en materia de protección de datos personales, incluida la Ley N.º 21.719, que modifica la Ley N.º 19.628 y cuya entrada en vigencia está prevista para el 1 de diciembre de 2026.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Esta política tiene por finalidad entregar información clara, precisa y accesible sobre el tratamiento de los datos y permitir que las personas titulares ejerzan sus derechos.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">2. Responsable del tratamiento</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El responsable del tratamiento de los datos personales recopilados mediante el Mapa de Decisiones es:</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Angélica Romero</strong></p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Sitio web: www.angelicaromero.cl</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Correo electrónico: contacto@angelicaromero.cl</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Para efectos de esta política, cuando se utilicen expresiones como "nosotros", "nuestro" o "responsable", se entenderá que se hace referencia a Angélica Romero como responsable del tratamiento.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">3. A quién está dirigido el autodiagnóstico</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El Mapa de Decisiones está dirigido a personas que actúan como representantes, responsables, propietarios, socios, administradores o integrantes de una organización y que proporcionan información sobre el funcionamiento de ésta.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El instrumento no solicita deliberadamente información personal de terceros, como trabajadores, clientes, proveedores u otras personas ajenas a quien responde.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La persona que completa el formulario debe procurar no incorporar en campos de texto libre información personal innecesaria de terceros.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">4. Qué información recopilamos</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El Mapa de Decisiones puede recopilar información relativa a la organización, incluyendo, según el nivel de diagnóstico seleccionado:</p>
+        <ul style="margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">situación de formalización y personalidad jurídica;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">giro, actividad, rubro y antigüedad;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">ubicación general, región y comuna;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">planificación y forma de administración;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">objetivos, metas y toma de decisiones;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">estructura y características generales del equipo;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">distribución de tareas y responsabilidades;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">dedicación de la persona que responde al negocio;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">espacios, recursos, maquinaria y herramientas;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">tecnologías, sistemas y medios de pago;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">productos y servicios;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">permisos y capacidad operativa;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">canales de venta y distribución;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">tipo y concentración de clientes;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">características comerciales;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">niveles generales de ventas;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">costos fijos y variables;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">financiamiento y costos financieros;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">márgenes, caja y condiciones de pago;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">otros antecedentes necesarios para elaborar el diagnóstico.</li>
+        </ul>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La información solicitada varía según el nivel de profundidad seleccionado. El instrumento contempla niveles básico, medio y profundo, con diferentes cantidades y tipos de preguntas.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Al finalizar el formulario se solicita una dirección de correo electrónico para enviar el informe y, cuando corresponda, coordinar la revisión del resultado.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">5. Datos personales</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La información relativa a una organización no constituye necesariamente, por sí misma, un dato personal.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Sin embargo, determinados antecedentes proporcionados por una persona natural pueden constituir datos personales cuando permiten identificarla directa o indirectamente, especialmente cuando se encuentran asociados a su correo electrónico u otros elementos identificables.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Por ello, esta política considera tanto:</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>a) Información relativa a la organización</strong>, utilizada para elaborar el diagnóstico; y</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>b) Datos personales asociados a la persona que responde</strong>, principalmente su dirección de correo electrónico y cualquier otro dato personal que pudiera incorporarse voluntariamente en una respuesta.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El instrumento no solicita deliberadamente categorías especiales de datos personales sensibles, tales como datos relativos a salud, biométricos, orientación sexual, identidad de género, convicciones religiosas, afiliación política, sindical o gremial, entre otros.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">No obstante, dado que algunos datos personales pueden adquirir la calidad de sensibles dependiendo de su contenido y contexto, se solicita a quien responde no incorporar en campos abiertos información personal sensible que no sea necesaria para el diagnóstico.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">6. Finalidades del tratamiento</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Los datos recopilados serán tratados para las siguientes finalidades:</p>
+        <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.3;font-weight:600;margin:20px 0 2px;color:#2E3A46">6.1. Elaboración del autodiagnóstico individual</h3>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Utilizar las respuestas para:</p>
+        <ul style="margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">analizar la situación descrita por la organización;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">identificar brechas, riesgos, fortalezas y oportunidades;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">elaborar el informe correspondiente;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">revisar personalmente el resultado antes de su envío;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">enviar el informe a la dirección de correo proporcionada;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">coordinar, cuando corresponda, una instancia de revisión del informe.</li>
+        </ul>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El informe no es generado exclusivamente mediante una decisión automatizada. El análisis y resultado son revisados por Angélica Romero antes de ser enviados.</p>
+        <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.3;font-weight:600;margin:20px 0 2px;color:#2E3A46">6.2. Mejora del instrumento y análisis agregado</h3>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La información podrá utilizarse para:</p>
+        <ul style="margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">evaluar y mejorar el Mapa de Decisiones;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">identificar tendencias y patrones generales;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">desarrollar análisis estadísticos;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">mejorar metodologías de diagnóstico;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">estudiar necesidades generales de las pymes y organizaciones participantes;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">desarrollar contenidos, herramientas o metodologías relacionados con estos análisis.</li>
+        </ul>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Cuando los resultados sean utilizados para estudios, estadísticas, publicaciones, presentaciones o contenidos públicos, se adoptarán medidas para que la información sea presentada de forma agregada o anonimizada y no permita identificar razonablemente a una persona ni asociar públicamente una respuesta concreta con una organización determinada.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">No se publicarán respuestas individuales identificables.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">7. Feedback sobre el instrumento</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El sitio puede ofrecer un mecanismo voluntario de evaluación del Mapa de Decisiones.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Este mecanismo puede solicitar opiniones sobre la claridad, utilidad y pertinencia del instrumento, así como comentarios abiertos y recomendaciones.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El feedback será tratado con el propósito de evaluar y mejorar la herramienta. El formulario lo presenta como anónimo y no se utilizará deliberadamente para identificar a quien lo entrega.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Cuando la información pueda asociarse accidentalmente con una persona o organización, será tratada conforme a esta Política de Privacidad.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">8. Bases de legitimidad</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El tratamiento se realizará sobre las bases de legitimidad que correspondan según la naturaleza de cada operación.</p>
+        <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.3;font-weight:600;margin:20px 0 2px;color:#2E3A46">8.1. Consentimiento</h3>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El tratamiento de los datos personales asociados al formulario y del correo electrónico para elaborar y enviar el diagnóstico se basa en el consentimiento de la persona titular, otorgado mediante una acción afirmativa en el formulario.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El consentimiento debe ser libre, informado y específico respecto de las finalidades comunicadas.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La Ley 21.719 establece que el consentimiento puede ser revocado en cualquier momento, sin efectos retroactivos.</p>
+        <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.3;font-weight:600;margin:20px 0 2px;color:#2E3A46">8.2. Interés legítimo</h3>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Cuando corresponda, determinados tratamientos relacionados con el análisis, evaluación y mejora del instrumento podrán sustentarse en el interés legítimo de Angélica Romero, siempre que dicho tratamiento sea necesario para la finalidad perseguida y no prevalezcan los derechos y libertades de la persona titular.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El interés legítimo consiste principalmente en mejorar la metodología de diagnóstico, evaluar su funcionamiento, desarrollar conocimiento agregado sobre las necesidades de las organizaciones participantes y mejorar los servicios y herramientas ofrecidos.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La Ley 21.719 reconoce el interés legítimo como una fuente de licitud cuando se cumplen sus requisitos y establece que el titular puede solicitar información sobre el interés legítimo invocado.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Cuando sea necesario obtener consentimiento para un tratamiento determinado, éste será solicitado de manera separada y específica.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">9. No existe finalidad comercial asociada al consentimiento</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La entrega del consentimiento para el tratamiento de los datos del autodiagnóstico no está condicionada a la aceptación de comunicaciones publicitarias, newsletters o campañas comerciales.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El correo proporcionado para el diagnóstico será utilizado para enviar el informe y, cuando corresponda, coordinar su revisión.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Esta Política no autoriza por sí misma el envío de comunicaciones comerciales ajenas a dichas finalidades.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">10. Encargados y proveedores tecnológicos</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Para operar el Mapa de Decisiones pueden utilizarse proveedores tecnológicos que procesan información por cuenta de Angélica Romero.</p>
+        <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.3;font-weight:600;margin:20px 0 2px;color:#2E3A46">Supabase</h3>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Las respuestas del autodiagnóstico son almacenadas mediante <strong>Supabase</strong>, utilizado como plataforma de almacenamiento y gestión de la información recopilada.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Supabase actúa como proveedor tecnológico encargado del tratamiento de los datos que se almacenan mediante su servicio.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La documentación de Supabase contempla como operaciones de tratamiento, entre otras, almacenamiento, eliminación, rectificación, análisis, transferencia y agregación, y permite el uso de subencargados autorizados.</p>
+        <h3 style="font-family:'Source Serif 4',Georgia,serif;font-size:17px;line-height:1.3;font-weight:600;margin:20px 0 2px;color:#2E3A46">Zoho Mail</h3>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El correo electrónico informado por la persona participante se utiliza para enviar individualmente el informe mediante <strong>Zoho Mail</strong>.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Zoho opera distintos centros de datos y la ubicación aplicable depende del dominio o configuración de la cuenta utilizada. Su documentación informa centros de datos en distintas jurisdicciones y la existencia de subencargados y terceros tecnológicos.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Los proveedores podrán procesar información fuera de Chile cuando ello sea necesario para prestar sus servicios y de acuerdo con las condiciones y garantías de protección de datos que resulten aplicables.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">No se venden ni comercializan las bases de datos del Mapa de Decisiones.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">11. Transferencias internacionales</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Debido a la utilización de proveedores tecnológicos internacionales, determinados datos podrían ser almacenados, procesados o resultar accesibles desde jurisdicciones distintas de Chile.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Esto puede ocurrir, entre otros casos, mediante Supabase y Zoho Mail o sus respectivos subencargados tecnológicos.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Angélica Romero procurará que dichas transferencias se realicen utilizando mecanismos y garantías compatibles con la legislación chilena aplicable, considerando las condiciones contractuales, técnicas y organizativas ofrecidas por los respectivos proveedores.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Supabase declara que sus datos pueden ser procesados donde Supabase o sus subencargados mantengan instalaciones, y contempla mecanismos contractuales para el tratamiento mediante subencargados.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Zoho, por su parte, informa públicamente sus centros de datos y la existencia de una estructura de subencargados y terceros proveedores, que puede variar según el servicio y configuración utilizada.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La presente política será actualizada cuando resulte necesario informar cambios relevantes en las transferencias internacionales o en las garantías aplicables.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">12. Conservación de los datos</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Las respuestas identificables del Mapa de Decisiones y los datos personales asociados se conservarán por un período máximo de <strong>24 meses</strong> desde su recepción, salvo que exista una obligación legal que justifique un período diferente.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El período tiene por finalidad permitir:</p>
+        <ul style="margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">completar el proceso de diagnóstico;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">enviar y revisar el informe;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">atender solicitudes relacionadas con el tratamiento;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">realizar análisis y mejoras durante un período razonable.</li>
+        </ul>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Una vez cumplido el plazo, los datos identificables serán eliminados o, cuando corresponda y resulte técnicamente posible, anonimizados.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Los datos que hayan sido efectivamente anonimizados podrán conservarse por un período superior para fines estadísticos, metodológicos o de investigación, siempre que no sea razonablemente posible identificar a las personas u organizaciones a partir de ellos.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La Ley 21.719 establece que los datos deben conservarse solo durante el tiempo necesario para cumplir las finalidades del tratamiento y posteriormente deben ser suprimidos o anonimizados, salvo las excepciones legales.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">13. Almacenamiento temporal en el navegador</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El Mapa de Decisiones puede utilizar almacenamiento local del navegador para permitir que una persona pause y posteriormente retome sus respuestas.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Este almacenamiento corresponde al funcionamiento temporal del instrumento y no reemplaza el almacenamiento principal de las respuestas enviadas.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Una vez enviado el formulario, el borrador local es eliminado por el instrumento.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La implementación actual utiliza almacenamiento local para permitir la continuidad del formulario y elimina el borrador después del envío.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">14. Seguridad</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Angélica Romero adopta medidas técnicas y organizativas razonables y proporcionales a la naturaleza de la información tratada para proteger los datos contra:</p>
+        <ul style="margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">acceso no autorizado;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">pérdida;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">destrucción;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">alteración;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">divulgación indebida;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">uso incompatible con las finalidades informadas.</li>
+        </ul>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Estas medidas incluyen, según corresponda, controles de acceso a los sistemas, utilización de proveedores tecnológicos especializados, mecanismos de autenticación y protección de las comunicaciones y gestión de los accesos a la información.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Los proveedores tecnológicos utilizados también mantienen medidas propias de seguridad. Supabase, por ejemplo, informa controles de seguridad de infraestructura y producto aplicables a sus servicios.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Ningún sistema tecnológico puede garantizar seguridad absoluta. En caso de producirse un incidente que afecte datos personales, se adoptarán las medidas de contención, evaluación, mitigación y comunicación que correspondan conforme a la legislación aplicable.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">15. Confidencialidad</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Angélica Romero tratará la información recopilada con carácter confidencial y no la comunicará a terceros distintos de los proveedores necesarios para prestar los servicios descritos en esta política, salvo que exista autorización del titular, una obligación legal o una causa de legitimidad que permita dicha comunicación.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La obligación de confidencialidad subsiste incluso después de finalizado el tratamiento. La Ley 21.719 establece expresamente el deber de secreto o confidencialidad respecto de los datos personales.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">16. Derechos de las personas titulares</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">De acuerdo con la legislación aplicable, la persona titular podrá ejercer los derechos que correspondan, incluyendo, entre otros:</p>
+        <ul style="margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56"><strong>acceso:</strong> conocer qué datos personales son tratados;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56"><strong>rectificación:</strong> solicitar la corrección de datos inexactos, incompletos o desactualizados;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56"><strong>supresión:</strong> solicitar la eliminación de sus datos cuando corresponda;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56"><strong>oposición:</strong> oponerse a determinados tratamientos en los casos previstos por la ley;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56"><strong>portabilidad:</strong> solicitar la entrega o transmisión de sus datos cuando se cumplan los requisitos legales;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56"><strong>retiro del consentimiento:</strong> retirar el consentimiento previamente otorgado.</li>
+        </ul>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La Ley 21.719 reconoce expresamente los derechos de acceso, rectificación, supresión, oposición y portabilidad, además del derecho a retirar el consentimiento cuando el tratamiento se base en éste.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El ejercicio de estos derechos no tendrá efectos retroactivos sobre tratamientos realizados lícitamente antes de la revocación.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">17. Cómo solicitar acceso, corrección o eliminación</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Las solicitudes relacionadas con los datos personales deberán enviarse a:</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>contacto@angelicaromero.cl</strong></p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La solicitud deberá indicar, en la medida de lo posible:</p>
+        <ul style="margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">nombre de la persona solicitante;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">correo utilizado en el Mapa de Decisiones;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">derecho que desea ejercer;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">información o tratamiento al que se refiere la solicitud;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">cualquier antecedente que facilite localizar los datos.</li>
+        </ul>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Para proteger la información, podrá solicitarse información razonablemente necesaria para verificar la identidad de quien formula la solicitud.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Las solicitudes serán gestionadas de acuerdo con los procedimientos y plazos establecidos por la legislación aplicable.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">En particular, una persona podrá solicitar la eliminación de las respuestas identificables asociadas a su participación. Cuando los datos hayan sido previamente anonimizados de manera irreversible, no será técnicamente posible vincularlos nuevamente con la persona titular.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">18. Datos anonimizados y publicaciones</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Cuando los datos sean utilizados para generar estadísticas, estudios, análisis o publicaciones, se adoptarán medidas destinadas a impedir que los resultados permitan identificar razonablemente a una persona o asociarlos con una respuesta individual.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Los resultados podrán presentarse, por ejemplo, como porcentajes, tendencias, categorías, distribuciones o conclusiones generales.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">No se publicarán nombres, correos electrónicos ni respuestas individuales identificables.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La legislación chilena permite la publicación de resultados de determinados tratamientos estadísticos cuando previamente se adoptan medidas para anonimizar los datos publicados.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">19. Decisiones automatizadas y elaboración de perfiles</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El Mapa de Decisiones puede utilizar reglas, clasificaciones o cálculos para organizar la información y estructurar el análisis.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Sin embargo, el resultado individual no constituye una decisión exclusivamente automatizada con efectos jurídicos o significativamente relevantes sobre la persona titular.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El informe es revisado por Angélica Romero antes de su envío.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La Ley 21.719 contempla derechos específicos frente a decisiones basadas exclusivamente en tratamientos automatizados que produzcan efectos jurídicos o afecten significativamente al titular.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">20. Fuentes de los datos</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Los datos tratados mediante el Mapa de Decisiones provienen directamente de la persona que completa y envía el formulario.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">No se recopilan deliberadamente respuestas del formulario desde bases de datos de terceros ni se incorporan datos personales de terceros para elaborar el diagnóstico.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La información utilizada para análisis del entorno, mercado, regulación, tecnología u otras materias podrá provenir de fuentes públicas o de información disponible legítimamente, pero no forma parte de los datos personales proporcionados por la persona participante mediante el formulario.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">21. Menores de edad</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">El Mapa de Decisiones está destinado a personas que actúan en representación o gestión de una organización y no está diseñado para recopilar deliberadamente datos personales de menores de edad.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Si una persona menor de edad proporciona información por error, podrá solicitar su eliminación a través de contacto@angelicaromero.cl.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">22. Cambios en esta Política de Privacidad</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Esta política podrá ser modificada para reflejar cambios en:</p>
+        <ul style="margin:8px 0;padding-left:20px;display:flex;flex-direction:column;gap:6px">
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">la legislación;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">las funcionalidades del Mapa de Decisiones;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">las finalidades del tratamiento;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">los proveedores tecnológicos;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">los mecanismos de seguridad;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">los períodos de conservación;</li>
+          <li style="font-size:15px;line-height:1.65;color:#3F4A56">los derechos o procedimientos aplicables.</li>
+        </ul>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La versión vigente permanecerá disponible en www.angelicaromero.cl/privacidad.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Toda modificación relevante será identificada mediante una nueva versión y fecha de actualización.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">23. Reclamos ante la autoridad competente</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Si una persona considera que sus derechos en materia de protección de datos personales no han sido respetados, podrá ejercer las acciones y presentar los reclamos que correspondan ante la autoridad competente, incluida la <strong>Agencia de Protección de Datos Personales</strong>, de acuerdo con las competencias y procedimientos establecidos por la legislación vigente.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La Ley 21.719 contempla expresamente el derecho del titular a recurrir ante la Agencia cuando el responsable rechace o no responda oportunamente una solicitud.</p>
+
+        <h2 style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(22px,3.4vw,28px);line-height:1.2;font-weight:600;margin:48px 0 4px;color:#2E3A46">24. Aceptación</h2>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">Al marcar la casilla de consentimiento disponible en el Mapa de Decisiones, la persona declara haber tenido acceso a esta Política de Privacidad y manifiesta su voluntad respecto del tratamiento de sus datos en los términos informados en el formulario y en esta política.</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0">La aceptación de esta política no implica autorización para utilizar los datos con fines distintos de aquellos expresamente informados.</p>
+
+        <hr style="border:none;border-top:1px solid #DCD5C7;margin:32px 0" />
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Responsable:</strong> Angélica Romero</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Correo para privacidad y ejercicio de derechos:</strong> contacto@angelicaromero.cl</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Sitio web:</strong> www.angelicaromero.cl</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Política:</strong> www.angelicaromero.cl/privacidad</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Versión:</strong> 1.0</p>
+        <p style="font-size:15px;line-height:1.7;color:#3F4A56;margin:6px 0"><strong>Vigencia:</strong> 1 de diciembre de 2026</p>
+      </div>
+    </section>
+  </main>
+  <SiteFooter />
+</BaseLayout>

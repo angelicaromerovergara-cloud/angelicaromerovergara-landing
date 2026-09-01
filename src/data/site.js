@@ -12,23 +12,26 @@ export const SITE = {
 // URLs canónicas de las 4 páginas de servicio públicas (el Servicio 05,
 // Asesoría Financiera Personal, no tiene página ni enlace público por
 // regla de negocio — no se agrega aquí a propósito).
+// Nombres y URLs vigentes desde el renombre confirmado 1-sep-2026
+// (ver Memoria_ARV.md — "DECISIÓN — renombre de servicios").
 export const SERVICIOS = {
   diagnostico: {
-    url: "/servicios/diagnostico-estrategico-comercial",
-    nombre: "Diagnóstico Estratégico Comercial",
+    url: "/servicios/claridad-estrategica",
+    nombre: "Claridad Estratégica",
   },
   rendiciones: {
-    url: "/servicios/revision-rendicion-cuentas-resolucion-2-2026",
-    nombre: "Revisión de Rendiciones de Cuentas",
+    url: "/servicios/rendicion-segura-fondos-publicos-resolucion-2-2026",
+    nombre: "Rendición Segura De Fondos Públicos",
   },
   canvas: {
-    url: "/servicios/consultoria-estrategica-canvas",
-    nombre: "Consultoría Estratégica y Comercial (CANVAS)",
+    url: "/servicios/evolucion-estrategica-del-negocio",
+    nombre: "Evolución Estratégica Del Negocio",
   },
   taller: {
-    url: "/servicios/taller-financiero-para-quienes-deciden",
-    nombre: "Taller Financiero para Quienes Deciden en tu Pyme",
+    url: "/servicios/taller-finanzas-para-tomar-decisiones",
+    nombre: "Taller “Finanzas para tomar decisiones”",
   },
 };
 
 export const SOBRE_MI_URL = "/sobre-mi";
+export const PRIVACIDAD_URL = "/privacidad";
