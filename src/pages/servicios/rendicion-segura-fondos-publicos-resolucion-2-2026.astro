@@ -7,7 +7,7 @@ import Faq from "../../components/Faq.astro";
 import CierreCTA from "../../components/CierreCTA.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { SITE, SERVICIOS } from "../../data/site.js";
-import { breadcrumbSchema, faqSchema } from "../../lib/schema.js";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "../../lib/schema.js";
 
 const title = "Rendición Segura De Fondos Públicos | Angelica Romero Vergara";
 const description = "Rendición Segura De Fondos Públicos: revisión ante Contraloría en Chile. Reduce observaciones y riesgo de restitución, con 8 años en la Seremi MIDESO.";
@@ -50,6 +50,13 @@ const jsonLd = [
     }))
   ),
   faqSchema(faq),
+  serviceSchema({
+    name: SERVICIOS.rendiciones.nombre,
+    description,
+    url: new URL(path, SITE.domain).toString(),
+    providerName: SITE.nombre,
+    providerUrl: SITE.domain,
+  }),
 ];
 ---
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>

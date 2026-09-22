@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://www.angelicaromero.cl",
+  site: "https://angelicaromero.cl",
   // Redirects 301 del renombre de servicios confirmado 1-sep-2026
   // (ver Memoria_ARV.md). Los dos slugs viejos del Taller apuntan directo
   // al final, sin encadenar saltos.

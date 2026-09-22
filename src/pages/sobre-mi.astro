@@ -5,7 +5,7 @@ import PageHero from "../components/PageHero.astro";
 import CierreCTA from "../components/CierreCTA.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import { SITE, SERVICIOS, SOBRE_MI_URL } from "../data/site.js";
-import { breadcrumbSchema } from "../lib/schema.js";
+import { breadcrumbSchema, personSchema } from "../lib/schema.js";
 
 const title = "Sobre Angelica Romero Vergara | +20 años en Banca y Consultoría";
 const description = "Ingeniera Comercial con +20 años en Banco de Chile, Seremi de Desarrollo Social y Familia (MIDESO), Los Ríos, y consultoría a pymes.";
@@ -16,12 +16,22 @@ const breadcrumbItems = [
   { name: "Sobre mí" },
 ];
 
-const jsonLd = breadcrumbSchema(
-  breadcrumbItems.map((item) => ({
-    name: item.name,
-    url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
-  }))
-);
+const jsonLd = [
+  breadcrumbSchema(
+    breadcrumbItems.map((item) => ({
+      name: item.name,
+      url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
+    }))
+  ),
+  personSchema({
+    name: SITE.nombre,
+    jobTitle: "Ingeniera Comercial",
+    url: new URL(path, SITE.domain).toString(),
+    image: new URL("/assets/angelica-romero-sobre-mi.png", SITE.domain).toString(),
+    sameAs: [SITE.linkedin],
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Universidad Gabriela Mistral" },
+  }),
+];
 ---
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
   <SiteHeader />

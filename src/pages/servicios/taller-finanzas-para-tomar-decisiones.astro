@@ -4,12 +4,13 @@ import SiteHeader from "../../components/SiteHeader.astro";
 import PageHero from "../../components/PageHero.astro";
 import EnlaceAgenda from "../../components/EnlaceAgenda.astro";
 import RelatedService from "../../components/RelatedService.astro";
+import Faq from "../../components/Faq.astro";
 import CierreCTA from "../../components/CierreCTA.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { SITE, SERVICIOS } from "../../data/site.js";
-import { breadcrumbSchema } from "../../lib/schema.js";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "../../lib/schema.js";
 
-const title = 'Taller "Finanzas para tomar decisiones" | ARV';
+const title = 'Taller "Finanzas para tomar decisiones" | Angelica Romero Vergara';
 const description = 'Taller "Finanzas para tomar decisiones": caja, margen y endeudamiento en un lenguaje común para quienes deciden en tu pyme. Jornada única o 3 sesiones.';
 const path = SERVICIOS.taller.url;
 
@@ -19,12 +20,37 @@ const breadcrumbItems = [
   { name: SERVICIOS.taller.nombre },
 ];
 
-const jsonLd = breadcrumbSchema(
-  breadcrumbItems.map((item) => ({
-    name: item.name,
-    url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
-  }))
-);
+const faq = [
+  {
+    q: "¿Cuánto dura el taller?",
+    a: "Una jornada intensiva o tres sesiones espaciadas, con el mismo contenido — se define según la disponibilidad de tu equipo.",
+  },
+  {
+    q: "¿Para cuántas personas está pensado?",
+    a: "Para equipos de 3 a 10 personas: quienes participan en las decisiones financieras de la pyme, tengan o no un cargo formal de dirección.",
+  },
+  {
+    q: "¿Es una capacitación tipo OTEC o SENCE?",
+    a: "No. A diferencia de una capacitación OTEC o SENCE estándar, este taller se ajusta a los números reales de tu empresa, no a un caso genérico.",
+  },
+];
+
+const jsonLd = [
+  breadcrumbSchema(
+    breadcrumbItems.map((item) => ({
+      name: item.name,
+      url: item.href ? new URL(item.href, SITE.domain).toString() : new URL(path, SITE.domain).toString(),
+    }))
+  ),
+  faqSchema(faq),
+  serviceSchema({
+    name: SERVICIOS.taller.nombre,
+    description,
+    url: new URL(path, SITE.domain).toString(),
+    providerName: SITE.nombre,
+    providerUrl: SITE.domain,
+  }),
+];
 ---
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>
   <SiteHeader />
@@ -69,6 +95,13 @@ const jsonLd = breadcrumbSchema(
         <RelatedService>
           Si además del lenguaje común el equipo necesita reordenar el modelo de negocio completo, el siguiente paso natural es <a href={SERVICIOS.canvas.url} style="color:#C15B42;text-decoration:underline">Evolución Estratégica Del Negocio (metodología CANVAS)</a>.
         </RelatedService>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq-heading" style="background:#FFFFFF;padding:var(--pad-y) var(--pad-x)">
+      <div style="max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+        <h2 id="faq-heading" style="font-family:'Source Serif 4',Georgia,serif;font-size:clamp(26px,4vw,36px);line-height:1.15;font-weight:600;letter-spacing:-.015em;margin:0;text-wrap:pretty">Preguntas frecuentes</h2>
+        <Faq items={faq} />
       </div>
     </section>
 

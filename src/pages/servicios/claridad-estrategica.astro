@@ -7,9 +7,9 @@ import Faq from "../../components/Faq.astro";
 import CierreCTA from "../../components/CierreCTA.astro";
 import SiteFooter from "../../components/SiteFooter.astro";
 import { SITE, SERVICIOS } from "../../data/site.js";
-import { breadcrumbSchema, faqSchema } from "../../lib/schema.js";
+import { breadcrumbSchema, faqSchema, serviceSchema } from "../../lib/schema.js";
 
-const title = "Claridad Estratégica para Pymes | ARV";
+const title = "Claridad Estratégica para Pymes | Angelica Romero Vergara";
 const description = "Claridad Estratégica: 2 sesiones para gerentes de pymes en Chile. Revisamos tus números y estructura comercial, con hoja de ruta priorizada escrita.";
 const path = SERVICIOS.diagnostico.url;
 
@@ -42,6 +42,13 @@ const jsonLd = [
     }))
   ),
   faqSchema(faq),
+  serviceSchema({
+    name: SERVICIOS.diagnostico.nombre,
+    description,
+    url: new URL(path, SITE.domain).toString(),
+    providerName: SITE.nombre,
+    providerUrl: SITE.domain,
+  }),
 ];
 ---
 <BaseLayout title={title} description={description} path={path} jsonLd={jsonLd}>

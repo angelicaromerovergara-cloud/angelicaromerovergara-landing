@@ -29,3 +29,33 @@ export function faqSchema(items) {
     })),
   };
 }
+
+export function serviceSchema({ name, description, url, providerName, providerUrl }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: name,
+    name,
+    description,
+    url,
+    provider: {
+      "@type": "ProfessionalService",
+      name: providerName,
+      url: providerUrl,
+    },
+    areaServed: { "@type": "Country", name: "Chile" },
+  };
+}
+
+export function personSchema({ name, jobTitle, url, image, sameAs, alumniOf }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name,
+    jobTitle,
+    url,
+    image,
+    sameAs,
+    alumniOf,
+  };
+}
